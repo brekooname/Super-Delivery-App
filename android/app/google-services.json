@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "947362964850",
+    "project_id": "super-delivery-868b1",
+    "storage_bucket": "super-delivery-868b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947362964850:android:81eef78c2997e24fd329eb",
+        "android_client_info": {
+          "package_name": "com.example.delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947362964850-46t07k317r1k04639iivsrshfetb3dqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvNrnq_xDx90T4TYj-r4Pm7HyD02kI_zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947362964850-46t07k317r1k04639iivsrshfetb3dqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
