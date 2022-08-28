@@ -8,11 +8,13 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  Color bgColor = const Color(0xff5EAF42);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Homepage"),
+        backgroundColor: bgColor,
       ),
     );
   }
