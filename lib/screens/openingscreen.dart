@@ -1,3 +1,4 @@
+import 'package:delivery/screens/riderlogin.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -83,7 +84,7 @@ class _openingScreenState extends State<openingScreen> {
                   child: Text(
                     "Continue as Admin",
                     style: GoogleFonts.ubuntu(
-                        fontSize: 24,
+                        fontSize: 20,
                         color: Colors.white,
                         fontWeight: FontWeight.bold),
                   ),
@@ -98,11 +99,14 @@ class _openingScreenState extends State<openingScreen> {
                 decoration: BoxDecoration(
                     color: btnColor, borderRadius: BorderRadius.circular(20)),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => riderLogin()));
+                  },
                   child: Text(
                     "Continue as Rider",
                     style: GoogleFonts.ubuntu(
-                        fontSize: 24,
+                        fontSize: 20,
                         color: Colors.white,
                         fontWeight: FontWeight.bold),
                   ),
