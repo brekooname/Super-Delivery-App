@@ -1,5 +1,6 @@
 import 'package:delivery/screens/adminlogin.dart';
 import 'package:delivery/screens/riderlogin.dart';
+import 'package:delivery/screens/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -130,7 +131,10 @@ class _openingScreenState extends State<openingScreen> {
                         fontWeight: FontWeight.bold),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Signup()));
+                    },
                     child: Text(
                       "Create one",
                       style: GoogleFonts.ubuntu(
