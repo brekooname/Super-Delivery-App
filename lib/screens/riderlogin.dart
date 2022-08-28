@@ -12,6 +12,7 @@ class riderLogin extends StatefulWidget {
 class _riderLoginState extends State<riderLogin> {
   Color bgColor = const Color(0xff5EAF42);
   Color btnColor = const Color(0xff3B8222);
+  textformField _textformfield = textformField();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,9 +51,8 @@ class _riderLoginState extends State<riderLogin> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: formfiled(),
-            ),
+                padding: const EdgeInsets.all(20.0),
+                child: _textformfield.formfiled()),
             Row(
               children: [
                 Padding(
@@ -68,9 +68,8 @@ class _riderLoginState extends State<riderLogin> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Passwordformfiled(),
-            ),
+                padding: const EdgeInsets.all(20.0),
+                child: _textformfield.Passwordformfiled()),
             Container(
               width: 350,
               height: 60,
