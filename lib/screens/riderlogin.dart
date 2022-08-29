@@ -135,8 +135,13 @@ class _riderLoginState extends State<riderLogin> {
                   color: btnColor, borderRadius: BorderRadius.circular(20)),
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => riderLogin()));
+                  if (Provider.of<textformField>(context, listen: false)
+                      .formkey
+                      .currentState!
+                      .validate()) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => riderLogin()));
+                  }
                 },
                 child: Text(
                   "Continue with Google",
