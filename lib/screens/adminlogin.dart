@@ -72,9 +72,8 @@ class _adminLoginState extends State<adminLogin> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Consumer<textformField>(
-                builder: (context, value, child) => value.obsuretext
-                    ? value.Passwordformfiled()
-                    : value.formfiled()),
+                builder: ((context, value, child) =>
+                    value.Passwordformfiled())),
           ),
           SizedBox(
             height: 20,

@@ -1,6 +1,7 @@
 import 'package:delivery/screens/riderlogin.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 import '../constant/textformfield.dart';
 
@@ -14,6 +15,7 @@ class Signup extends StatefulWidget {
 class _SignupState extends State<Signup> {
   Color bgColor = const Color(0xff5EAF42);
   Color btnColor = const Color(0xff3B8222);
+  textformField _textformfield = textformField();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +55,7 @@ class _SignupState extends State<Signup> {
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: formfiled(),
+              child: _textformfield.formfiled(),
             ),
             Row(
               children: [
@@ -70,9 +72,10 @@ class _SignupState extends State<Signup> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Passwordformfiled(),
-            ),
+                padding: const EdgeInsets.all(20.0),
+                child: Provider.of<textformField>(
+                  context,
+                ).Passwordformfiled()),
             SizedBox(
               height: 20,
             ),

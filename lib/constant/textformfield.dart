@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class textformField with ChangeNotifier {
   bool obsuretext = true;
@@ -36,7 +35,7 @@ class textformField with ChangeNotifier {
       decoration: InputDecoration(
         suffixIcon: IconButton(
             onPressed: () {
-              obsuretext = false;
+              obsuretext = !obsuretext;
               notifyListeners();
             },
             icon: Icon(
