@@ -9,7 +9,6 @@ class textformField with ChangeNotifier {
     return Form(
       key: formkey,
       child: TextFormField(
-        autocorrect: false,
         style: GoogleFonts.ubuntu(
             fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
         cursorColor: Colors.black,
@@ -32,7 +31,7 @@ class textformField with ChangeNotifier {
           notifyListeners();
         },
         validator: (value) {
-          return value!.isEmpty ? "Enter your Email" : null;
+          return value!.isEmpty ? "Enter valid Email" : null;
         },
       ),
     );
@@ -78,7 +77,7 @@ class textformField with ChangeNotifier {
           notifyListeners();
         },
         validator: (value) {
-          return value!.isEmpty ? "Enter valid password " : null;
+          return value!.isEmpty ? "Enter valid password" : null;
         },
       ),
     );

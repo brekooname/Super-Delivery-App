@@ -1,4 +1,5 @@
 import 'package:delivery/constant/textformfield.dart';
+import 'package:delivery/screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -80,8 +81,15 @@ class _riderLoginState extends State<riderLogin> {
                   color: btnColor, borderRadius: BorderRadius.circular(20)),
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => riderLogin()));
+                  if (Provider.of<textformField>(context, listen: false)
+                      .formkey
+                      .currentState!
+                      .validate()) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Homepage()));
+                  }
                 },
                 child: Text(
                   "Log in",
@@ -92,7 +100,7 @@ class _riderLoginState extends State<riderLogin> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -125,7 +133,7 @@ class _riderLoginState extends State<riderLogin> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
@@ -139,8 +147,10 @@ class _riderLoginState extends State<riderLogin> {
                       .formkey
                       .currentState!
                       .validate()) {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => riderLogin()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const riderLogin()));
                   }
                 },
                 child: Text(

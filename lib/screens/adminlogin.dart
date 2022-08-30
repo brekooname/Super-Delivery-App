@@ -1,4 +1,5 @@
 import 'package:delivery/constant/textformfield.dart';
+import 'package:delivery/screens/homepage.dart';
 import 'package:delivery/screens/riderlogin.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -75,7 +76,7 @@ class _adminLoginState extends State<adminLogin> {
                 builder: ((context, value, child) =>
                     value.Passwordformfiled())),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(
@@ -85,8 +86,13 @@ class _adminLoginState extends State<adminLogin> {
                 color: btnColor, borderRadius: BorderRadius.circular(20)),
             child: TextButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => riderLogin()));
+                if (Provider.of<textformField>(context, listen: false)
+                    .formkey
+                    .currentState!
+                    .validate()) {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Homepage()));
+                }
               },
               child: Text(
                 "Log in",
