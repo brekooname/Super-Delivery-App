@@ -54,7 +54,7 @@ class _riderLoginState extends State<riderLogin> {
             ),
             Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: _textformfield.formfiled()),
+                child: Provider.of<textformField>(context).Emailformfiled()),
             Row(
               children: [
                 Padding(
@@ -82,9 +82,13 @@ class _riderLoginState extends State<riderLogin> {
               child: TextButton(
                 onPressed: () {
                   if (Provider.of<textformField>(context, listen: false)
-                      .formkey
-                      .currentState!
-                      .validate()) {
+                          .Emailformkey
+                          .currentState!
+                          .validate() &
+                      Provider.of<textformField>(context, listen: false)
+                          .Passwordformkey
+                          .currentState!
+                          .validate()) {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -144,9 +148,13 @@ class _riderLoginState extends State<riderLogin> {
               child: TextButton(
                 onPressed: () {
                   if (Provider.of<textformField>(context, listen: false)
-                      .formkey
-                      .currentState!
-                      .validate()) {
+                          .Emailformkey
+                          .currentState!
+                          .validate() &&
+                      Provider.of<textformField>(context, listen: false)
+                          .Passwordformkey
+                          .currentState!
+                          .validate()) {
                     Navigator.push(
                         context,
                         MaterialPageRoute(

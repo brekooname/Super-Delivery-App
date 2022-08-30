@@ -3,16 +3,31 @@ import 'package:google_fonts/google_fonts.dart';
 
 class textformField with ChangeNotifier {
   bool obsuretext = true;
-  final formkey = GlobalKey<FormState>();
-  Widget formfiled() {
-    String email;
+  // ignore: non_constant_identifier_names
+  final Emailformkey = GlobalKey<FormState>();
+  // ignore: non_constant_identifier_names
+  final Passwordformkey = GlobalKey<FormState>();
+  String? email;
+  String? password;
+
+  Widget Emailformfiled() {
     return Form(
-      key: formkey,
+      key: Emailformkey,
       child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
+        autofillHints: const [AutofillHints.email],
         style: GoogleFonts.ubuntu(
             fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
         cursorColor: Colors.black,
         decoration: InputDecoration(
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(color: Colors.red),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.red),
+            borderRadius: BorderRadius.circular(10),
+          ),
           focusColor: Colors.white,
           hintText: "Enter your Email",
           hintStyle: GoogleFonts.ubuntu(
@@ -31,22 +46,43 @@ class textformField with ChangeNotifier {
           notifyListeners();
         },
         validator: (value) {
-          return value!.isEmpty ? "Enter valid Email" : null;
+          return validateEmail(value);
         },
       ),
     );
   }
 
+  String? validateEmail(String? value) {
+    String pattern =
+        r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+        r"{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+        r"{0,253}[a-zA-Z0-9])?)*$";
+    RegExp regex = RegExp(pattern);
+    if (value == null || value.isEmpty || !regex.hasMatch(value)) {
+      return 'Enter a valid email address';
+    } else {
+      return null;
+    }
+  }
+
+  // ignore: non_constant_identifier_names
   Widget Passwordformfiled() {
-    String password;
     return Form(
-      key: formkey,
+      key: Passwordformkey,
       child: TextFormField(
         obscureText: obsuretext,
         cursorColor: Colors.black,
         style: GoogleFonts.ubuntu(
             fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
         decoration: InputDecoration(
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(color: Colors.red),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.red),
+            borderRadius: BorderRadius.circular(10),
+          ),
           suffixIcon: IconButton(
               onPressed: () {
                 obsuretext = !obsuretext;
@@ -77,7 +113,11 @@ class textformField with ChangeNotifier {
           notifyListeners();
         },
         validator: (value) {
-          return value!.isEmpty ? "Enter valid password" : null;
+          if (value!.isEmpty) {
+            return "Enter valid Password";
+          } else {
+            return null;
+          }
         },
       ),
     );

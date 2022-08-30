@@ -23,7 +23,7 @@ class myApp extends StatelessWidget {
         ChangeNotifierProvider<textformField>(
             create: (context) => textformField())
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: openingScreen(),
       ),

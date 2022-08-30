@@ -1,6 +1,5 @@
 import 'package:delivery/constant/textformfield.dart';
 import 'package:delivery/screens/homepage.dart';
-import 'package:delivery/screens/riderlogin.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +14,7 @@ class adminLogin extends StatefulWidget {
 class _adminLoginState extends State<adminLogin> {
   Color bgColor = const Color(0xff5EAF42);
   Color btnColor = const Color(0xff3B8222);
-  textformField _textformfield = textformField();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +53,8 @@ class _adminLoginState extends State<adminLogin> {
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: _textformfield.formfiled(),
+            child: Consumer<textformField>(
+                builder: ((context, value, child) => value.Emailformfiled())),
           ),
           Row(
             children: [
@@ -87,11 +87,17 @@ class _adminLoginState extends State<adminLogin> {
             child: TextButton(
               onPressed: () {
                 if (Provider.of<textformField>(context, listen: false)
-                    .formkey
-                    .currentState!
-                    .validate()) {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Homepage()));
+                        .Emailformkey
+                        .currentState!
+                        .validate() &
+                    Provider.of<textformField>(context, listen: false)
+                        .Passwordformkey
+                        .currentState!
+                        .validate()) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Homepage()));
                 }
               },
               child: Text(
