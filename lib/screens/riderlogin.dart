@@ -1,4 +1,5 @@
 import 'package:delivery/constant/textformfield.dart';
+import 'package:delivery/firebaseServices/authentication/signinwithgoogle.dart';
 import 'package:delivery/screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -146,20 +147,10 @@ class _riderLoginState extends State<riderLogin> {
               decoration: BoxDecoration(
                   color: btnColor, borderRadius: BorderRadius.circular(20)),
               child: TextButton(
-                onPressed: () {
-                  if (Provider.of<textformField>(context, listen: false)
-                          .Emailformkey
-                          .currentState!
-                          .validate() &&
-                      Provider.of<textformField>(context, listen: false)
-                          .Passwordformkey
-                          .currentState!
-                          .validate()) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const riderLogin()));
-                  }
+                onPressed: () async {
+                  final result =
+                      await Provider.of<googleSignin>(context, listen: false)
+                          .signinwithGoogle();
                 },
                 child: Text(
                   "Continue with Google",

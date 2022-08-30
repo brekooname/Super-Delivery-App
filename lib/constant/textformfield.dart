@@ -114,7 +114,7 @@ class textformField with ChangeNotifier {
         },
         validator: (value) {
           if (value!.isEmpty) {
-            return "Enter valid Password";
+            return "Enter a valid Password";
           } else {
             return null;
           }

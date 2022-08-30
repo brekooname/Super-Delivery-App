@@ -1,4 +1,5 @@
 import 'package:delivery/constant/textformfield.dart';
+import 'package:delivery/firebaseServices/authentication/signinwithgoogle.dart';
 import 'package:delivery/firebase_options.dart';
 import 'package:delivery/screens/homepage.dart';
 import 'package:delivery/screens/openingscreen.dart';
@@ -21,7 +22,9 @@ class myApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<textformField>(
-            create: (context) => textformField())
+            create: (context) => textformField()),
+        ChangeNotifierProvider<googleSignin>(
+            create: ((context) => googleSignin()))
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
